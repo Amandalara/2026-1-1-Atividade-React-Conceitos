@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { getProdutosTodos } from "@/services/api";
 
 export default function Home() {
-  const [produtos, atualizarProdutos] = useState([]); // produtos antes começava com undefined
-  const [busca, setBusca] = useState("");
+  const [produtos, atualizarProdutos] = useState([]); // o useState cria uma variável que pode mudar ao longo do tempo
+  const [busca, setBusca] = useState("");  //cria uma variável dinâmica (busca) e uma função pra mudar ela
 
   const produtosFiltrados =
-  busca.trim() === ""
+  busca.trim() === "" //trim() remove espaços vazios do começo e do fim de uma string
     ? []
-    : produtos.filter((produto) =>
+    : produtos.filter((produto) => //caso o usuário digite algo, é filtrado com o que combina com a busca
         produto.title.toLowerCase().includes(busca.toLowerCase())
       );
 
